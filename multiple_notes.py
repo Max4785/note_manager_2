@@ -11,43 +11,43 @@ while True:
     # Если в user_input нет данных, заходим в цикл, появляются, выходим из него
     while not user_input:
         user_input = input("Введите имя пользователя: ").strip()
-    имя = user_input
+    name = user_input
 
     user_input = ""
     while not user_input:
         user_input = input("Введите заголовок заметки: ").strip()
-    заголовок = user_input
+    title = user_input
 
     user_input = ""
     while not user_input:
         user_input = input("Введите описание заметки: ").strip()
-    описание = user_input
+    description = user_input
 
-    статус = ""
-    while статус not in ["новая", "в процессе", "выполнено"]:
-        статус = input("Введите статус заметки (новая, в процессе, выполнено): ").strip().lower()
-        if статус not in ["новая", "в процессе", "выполнено"]:
+    status = ""
+    while status not in ["новая", "в процессе", "выполнено"]:
+        status = input("Введите статус заметки (новая, в процессе, выполнено): ").strip().lower()
+        if status not in ["новая", "в процессе", "выполнено"]:
             print("Ошибка! Введите корректный статус.")
 
-    дата_создания = ""
+    creation_date = ""
     while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дата_создания):
         дата_создания = input("Введите дату создания (день-месяц-год): ").strip()
         if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дата_создания):
             print("Ошибка! Введите дату в формате день-месяц-год.")
 
-    дедлайн = ""
+    deadline = ""
     while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дедлайн):
-        дедлайн = input("Введите дедлайн (день-месяц-год): ").strip()
+        deadline = input("Введите дедлайн (день-месяц-год): ").strip()
         if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дедлайн):
             print("Ошибка! Введите дату в формате день-месяц-год.")
 
     note = {
-        "Имя": имя,
-        "Заголовок": заголовок,
-        "Описание": описание,
-        "Статус": статус,
-        "Дата создания": дата_создания,
-        "Дедлайн": дедлайн
+        "Имя": name,
+        "Заголовок": title,
+        "Описание": description,
+        "Статус": status,
+        "Дата создания": creation_date,
+        "Дедлайн": deadline
     }
 
     notes.append(note)
@@ -63,10 +63,10 @@ while True:
 print("\nСписок заметок:")
 for i, note in enumerate(notes, 1):
     print(
-        f"\n{i}. Имя: {note['Имя']}\n"
-        f"Заголовок: {note['Заголовок']}\n"
-        f"Описание: {note['Описание']}\n"
-        f"Статус: {note['Статус']}\n"
-        f"Дата создания: {note['Дата создания']}\n"
-        f"Дедлайн: {note['Дедлайн']}"
+        f"\n{i}. Имя: {note['name']}\n"
+        f"Заголовок: {note['title']}\n"
+        f"Описание: {note['description']}\n"
+        f"Статус: {note['status']}\n"
+        f"Дата создания: {note['creation_date']}\n"
+        f"Дедлайн: {note['deadline']}"
     )
