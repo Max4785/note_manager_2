@@ -30,15 +30,15 @@ while True:
             print("Ошибка! Введите корректный статус.")
 
     creation_date = ""
-    while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дата_создания):
-        дата_создания = input("Введите дату создания (день-месяц-год): ").strip()
-        if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дата_создания):
+    while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", creation_date):
+        creation_date = input("Введите дату создания (день-месяц-год): ").strip()
+        if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", creation_date):
             print("Ошибка! Введите дату в формате день-месяц-год.")
 
     deadline = ""
-    while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дедлайн):
+    while not re.match(r"\d{1,2}-\d{1,2}-\d{4}", deadline):
         deadline = input("Введите дедлайн (день-месяц-год): ").strip()
-        if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", дедлайн):
+        if not re.match(r"\d{1,2}-\d{1,2}-\d{4}", deadline):
             print("Ошибка! Введите дату в формате день-месяц-год.")
 
     note = {
@@ -63,10 +63,10 @@ while True:
 print("\nСписок заметок:")
 for i, note in enumerate(notes, 1):
     print(
-        f"\n{i}. Имя: {note['name']}\n"
-        f"Заголовок: {note['title']}\n"
-        f"Описание: {note['description']}\n"
-        f"Статус: {note['status']}\n"
-        f"Дата создания: {note['creation_date']}\n"
-        f"Дедлайн: {note['deadline']}"
+        f"\n{i}. Имя: {note['Имя']}\n"
+        f"Заголовок: {note['Заголовок']}\n"
+        f"Описание: {note['Описание']}\n"
+        f"Статус: {note['Статус']}\n"
+        f"Дата создания: {note['Дата создания']}\n"
+        f"Дедлайн: {note['Дедлайн']}"
     )
